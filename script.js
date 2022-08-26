@@ -1,3 +1,4 @@
+// element selectors
 const input = document.getElementById('input');
 const del = document.getElementById('delete');
 const clear = document.getElementById('clear');
@@ -10,10 +11,58 @@ const subtract = document.getElementById('subtract');
 const add = document.getElementById('add');
 const compute = document.getElementById('compute');
 
+// functions
+
+
+
+function inputfunc () {
+
+}
+
+function delfunc () {
+
+}
+
+function clearfunc () {
+
+}
+
+function parenthesisfunc () {
+
+}
+
+function exponentfunc () {
+
+}
+
+function percentfunc () {
+
+}
+
+function dividefunc () {
+
+}
+
+function multiplyfunc () {
+
+}
+
+function subtractfunc () {
+
+}
+
+function addfunc () {
+
+}
+
+function computefunc () {
+
+}
 
 
 
 
+// event listeners
 input.addEventListener('onclick',inputfunc);
 del.addEventListener('onclick',delfunc);
 clear.addEventListener('onclick',clearfunc);
