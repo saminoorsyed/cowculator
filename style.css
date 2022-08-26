@@ -1,0 +1,64 @@
+
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background:url(https://source.unsplash.com/HHpRh6rNQMo/1920x1080) center center fixed;
+    background-size: cover;
+}
+.cowculator{
+    width: 350px;
+    height: 500px;
+    background-color: rgb(84, 84, 84);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.display {
+    height: 60px;
+    width: 300px;
+    background-color: buttonface;
+    border-radius: 5px;
+}
+
+.buttons {
+    border: 3px solid black;
+    height: 350px;
+    width: 300px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.top-bar{
+    height: 50px;
+    width: 270px;
+    border: 1px solid black;
+}
+
+.button-organizer{
+    height: 250px;
+    width: 270px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.numbers {
+    width: 200px;
+    height: 250px;
+    border: solid 1px red;
+}
+
+.side-bar {
+    width:70px;
+    height: 250px;
+    border: solid 1px white;
+}
