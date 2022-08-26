@@ -28,7 +28,7 @@ body{
     align-items: center;
 }
 
-#screen {
+.screen {
     width: 250px;
     height: 60px;
     border: 1px solid black;
