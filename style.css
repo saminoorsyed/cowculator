@@ -20,11 +20,12 @@ body{
 }
 
 .display {
-    height: 60px;
+    height: 65px;
     width: 300px;
     background-color: buttonface;
     border-radius: 5px;
     display: flex;
+    align-items: center;
 }
 
 #screen {
@@ -51,7 +52,7 @@ body{
 }
 
 .top-bar{
-    height: 50px;
+    height: 62.5px;
     width: 270px;
     border: 1px solid black;
     display: flex;
@@ -78,7 +79,7 @@ body{
 }
 
 .side-bar {
-    width:70px;
+    width:67.5px;
     height: 250px;
     border: solid 1px white;
     display: flex;
