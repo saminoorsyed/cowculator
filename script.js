@@ -12,7 +12,7 @@ let result;
 
 // push the input into an array
 function pushInput(ins) {
-    // check if the value is a number, if so, concat it to the previous number
+    // check if the value is a number or decimal, if so, concat it to the previous number
     const re = new RegExp('[0-9]');
     if (re.test(ins) || ins === '.' ){
         numbers += ins;
