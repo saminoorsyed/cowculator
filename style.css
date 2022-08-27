@@ -11,7 +11,7 @@ body{
 .cowculator{
     width: 350px;
     height: 500px;
-    background-color: rgb(84, 84, 84);
+    background-color: beige;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -26,17 +26,27 @@ body{
     border-radius: 5px;
     display: flex;
     align-items: center;
+    border: 3px solid black;
+    border-radius: 15px;
 }
 
 .screen {
     width: 250px;
     height: 60px;
-    border: 1px solid black;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 10px;
+    font-size: 25px;
 }
 
 #delete {
-    width: 50px;
-    height: 60px;
+    width: 58px;
+    height: 69px;
+    border-radius: 15px;
+    margin-top: -5px;
+    margin-right: -2px;
 }
 
 
@@ -54,20 +64,21 @@ body{
 .top-bar{
     height: 62.5px;
     width: 270px;
-    border: 1px solid black;
     display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
-.top-bar > div{
-    flex: 1;
-    border: 1px solid blue;
-
+.top-bar > button{
+    width:55px;
+    height: 55px;
+    border-radius: 20px;
 }
 
 .button-organizer{
     height: 250px;
     width: 270px;
-    border: 1px solid black;
     display: flex;
     justify-content: space-between;
 }
@@ -75,18 +86,53 @@ body{
 .numbers {
     width: 200px;
     height: 250px;
-    border: solid 1px red;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
 }
+
+.numbers > button {
+    width:55px;
+    height: 55px;
+    border-radius: 20px;
+
+} 
 
 .side-bar {
     width:67.5px;
     height: 250px;
-    border: solid 1px white;
     display: flex;
     flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
-.side-bar > div{
-    flex:1;
-    border: 1px solid blue;
+.side-bar > button{
+    width:55px;
+    height: 55px;
+    border-radius: 20px;
+}
+
+button {
+    background-color: rgb(0, 0, 0);
+    color:white;
+    font-size: 20px;
+    box-shadow: 3px 3px #666;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+button:active {
+    box-shadow: 0px 0px;
+    transform: translateY(4px);
+}
+
+.active {
+    box-shadow: 0px 0px;
+    transform: translateY(4px);
 }
