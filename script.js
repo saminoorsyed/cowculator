@@ -6,7 +6,8 @@ const screen = document.getElementById('input');
 
 let input = [];
 let numbers = [];
-const operation = [];
+const operations = [];
+let screenStr=[];
 let result;
 // functions
 
@@ -31,14 +32,21 @@ function pushInput(ins) {
         input.push(ins);
         console.log(input);
     }
+    display();
 }
 
 function compute(){
 
 }
 function display(){
-    screen.textContent = input.join('');
     console.log(input);
+    if (input.length === 0){
+        screenStr = numbers;
+    }else{
+        screenStr = input.join('')+numbers;
+    };
+    screen.textContent = screenStr;
+
 }
 // listen for key codes to press buttons
 window.addEventListener('keyup', (e)=>{
