@@ -1,7 +1,7 @@
 // query selectors
 const buttons = document.querySelectorAll('[data-button]')
 const screen = document.getElementById('input');
-
+const cowSound = document.getElementById('cow-sound');
 // global vars
 
 let input = [];
@@ -13,13 +13,20 @@ let total;
 let deciFlag = false;
 // functions
 
+function moo(){
+    console.log('hello');
+    cowSound.currentTime = 0; //rewinds to start when key is hit
+    cowSound.play(); // plays audio element from query selector
+}
+
 // push the input into an array
 function pushInput(ins) {
     // check if the value is a number or decimal, if so, concat it to the previous number
     const re = new RegExp('[0-9]');
     if (re.test(ins) || ins === '.' ){
         if (ins ==="." && numbers.includes(".")){
-            alert('you cannot include more than one decimal in a number');
+            moo();
+            alert("you can't include more than one decimal in a number");
             return;
         }
         numbers += ins;
@@ -27,7 +34,8 @@ function pushInput(ins) {
     }else{
         // cannot put two operators in a row
         if (numbers.length <=0){
-            alert('you cannot insert two operators in a row!');
+            moo();
+            alert("You can't insert an operator here");
             return;
         }
         input.push(numbers);
@@ -36,7 +44,14 @@ function pushInput(ins) {
         // push the operator into the list
         input.push(ins);
     }
+
     if (ins === "="){
+        if (input.length === 2){
+            console.log('hel');
+            numbers = input[0]
+            input = [];
+            return
+        }
         compute();
         input = [];
         numbers = interimResult.toString();
