@@ -130,7 +130,7 @@ function display(){
 function del(){
     if (numbers.length >0){
         numbers = numbers.slice(0,-1);
-    }else{
+    }else if (input.length >0){
         if (operations.includes(input[-1])) {
             input.pop();
         }else{
