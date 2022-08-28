@@ -4,13 +4,23 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 100vh;
     background:url(https://source.unsplash.com/HHpRh6rNQMo/1920x1080) center center fixed;
     background-size: cover;
 }
+
+h1{
+    font-family: 'Michroma', sans-serif;
+    font-size: 75px;
+    -webkit-text-stroke: 1px black;
+    color: blanchedalmond;
+}
+
 .cowculator{
-    width: 350px;
-    height: 500px;
+    margin-top: 40px;
+    min-width: 350px;
+    min-height: 500px;
     background-color: beige;
     border-radius: 15px;
     display: flex;

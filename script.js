@@ -39,7 +39,7 @@ function pushInput(ins) {
     if (ins === "="){
         compute();
         input = [];
-        numbers = [interimResult];
+        numbers = interimResult.toString();
     }else{
         display();
     }
