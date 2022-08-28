@@ -10,6 +10,7 @@ const operations = ["^","x","/","+","-"];
 let screenStr=[];
 let interimResult;
 let total;
+let deciFlag = false;
 // functions
 
 // push the input into an array
@@ -17,6 +18,10 @@ function pushInput(ins) {
     // check if the value is a number or decimal, if so, concat it to the previous number
     const re = new RegExp('[0-9]');
     if (re.test(ins) || ins === '.' ){
+        if (ins ==="." && numbers.includes(".")){
+            alert('you cannot include more than one decimal in a number');
+            return;
+        }
         numbers += ins;
     // if the value is not a number, push the concatenated number to the input list
     }else{
@@ -34,7 +39,7 @@ function pushInput(ins) {
     if (ins === "="){
         compute();
         input = [];
-        numbers = [];
+        numbers = [interimResult];
     }else{
         display();
     }
@@ -44,13 +49,15 @@ function compute(){
     // loop through operations in the order of operations
     operations.forEach(operation => {
         // check each value of the array to see if it equals one of the operations
-        input.forEach((value, index) =>{
+         // input.forEach((value, index) =>{
+        for (i = 0; i<input.length; i++)
             // once an operation is found, call handleComputation and pass the operation and the index of that operation
-            if (value === operation){
-                console.log(index);
-                handleComputation(operation, index)
+            if (input[i] === operation){
+                console.log(i);
+                handleComputation(operation, i)
+                // once a computation has ocurred, step the index back once to account for missing values
+                i--
             }
-        });
     });
     display();
 }
@@ -71,6 +78,7 @@ function handleComputation(operation, index){
     }
     input.splice(index,2);
     input[index-1] = interimResult.toString();
+    console.log(input);
 }
 
 function exponents(firstNum,secondNum){
@@ -100,9 +108,15 @@ function clearAll(){
     display();
 }
 
-function checkButton(){
-    console.log('checked');
+function toggleNeg(){
+    if (parseFloat(numbers)<0){
+        numbers = numbers.slice(1);
+    }else{
+        numbers = "-"+numbers;
+    }
+    display();
 }
+
 function display(){
     if (input.length === 0){
         screenStr = numbers;
@@ -111,6 +125,21 @@ function display(){
     };
     screen.textContent = screenStr;
 
+}
+
+function del(){
+    if (numbers.length >0){
+        numbers = numbers.slice(0,-1);
+    }else{
+        if (operations.includes(input[-1])) {
+            input.pop();
+        }else{
+            input.pop();
+            numbers = input.pop();
+            console.log({input, numbers});
+        }
+    }
+    display();
 }
 // listen for key codes to press buttons
 window.addEventListener('keyup', (e)=>{
