@@ -6,9 +6,10 @@ const screen = document.getElementById('input');
 
 let input = [];
 let numbers = [];
-const operations = [];
+const operations = ["^","x","/","+","-"];
 let screenStr=[];
-let result;
+let interimResult;
+let total;
 // functions
 
 // push the input into an array
@@ -17,7 +18,6 @@ function pushInput(ins) {
     const re = new RegExp('[0-9]');
     if (re.test(ins) || ins === '.' ){
         numbers += ins;
-        console.log(numbers);
     // if the value is not a number, push the concatenated number to the input list
     }else{
         // cannot put two operators in a row
@@ -30,16 +30,74 @@ function pushInput(ins) {
         numbers = []
         // push the operator into the list
         input.push(ins);
-        console.log(input);
+    }
+    if (ins === "="){
+        compute();
     }
     display();
 }
 
 function compute(){
+    // loop through operations in the order of operations
+    operations.forEach(operation => {
+        // check each value of the array to see if it equals one of the operations
+        input.forEach((value, index) =>{
+            // once an operation is found, call handleComputation and pass the operation and the index of that operation
+            if (value === operation){
+                console.log(index);
+                handleComputation(operation, index)
+            }
+        });
+    });
+    display();
+}
+
+function handleComputation(operation, index){
+    const firstNum = parseFloat(input[index-1]);
+    const secondNum =parseFloat(input[index+1]);
+    if (operation === "^"){
+        exponents(firstNum,secondNum);
+    }else if (operation === "x"){
+        multiplication(firstNum,secondNum);
+    }else if (operation === "/"){
+        division(firstNum,secondNum);
+    }else if (operation === "+"){
+        addition(firstNum,secondNum);
+    }else if (operation === "-"){
+        subtraction(firstNum,secondNum);
+    }
+    input.splice(index,2);
+    input[index-1] = interimResult.toString();
+}
+
+function exponents(firstNum,secondNum){
+    interimResult = (firstNum**secondNum).toFixed(2);
+}
+
+function multiplication(firstNum,secondNum){
+    interimResult = (firstNum*secondNum).toFixed(2);
+}
+
+function division(firstNum,secondNum){
+    interimResult = (firstNum*secondNum).toFixed(2);
 
 }
+
+function addition(firstNum,secondNum){
+    interimResult = (firstNum+secondNum).toFixed(2);
+}
+
+function subtraction(firstNum,secondNum){
+    interimResult = (firstNum-secondNum).toFixed(2);
+}
+
+function clear(){
+    console.log('je')
+    input = [];
+    numbers = [];
+    display();
+}
 function display(){
-    console.log(input);
     if (input.length === 0){
         screenStr = numbers;
     }else{
@@ -50,7 +108,6 @@ function display(){
 }
 // listen for key codes to press buttons
 window.addEventListener('keyup', (e)=>{
-    console.log(e.key);
     buttons.forEach(butt =>{
         if (butt.dataset.button === e.key){
             butt.click();
