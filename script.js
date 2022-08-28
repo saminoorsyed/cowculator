@@ -33,8 +33,11 @@ function pushInput(ins) {
     }
     if (ins === "="){
         compute();
+        input = [];
+        numbers = [];
+    }else{
+        display();
     }
-    display();
 }
 
 function compute(){
@@ -91,11 +94,14 @@ function subtraction(firstNum,secondNum){
     interimResult = (firstNum-secondNum).toFixed(2);
 }
 
-function clear(){
-    console.log('je')
+function clearAll(){
     input = [];
     numbers = [];
     display();
+}
+
+function checkButton(){
+    console.log('checked');
 }
 function display(){
     if (input.length === 0){
