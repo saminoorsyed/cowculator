@@ -90,7 +90,7 @@ function multiplication(firstNum,secondNum){
 }
 
 function division(firstNum,secondNum){
-    interimResult = (firstNum*secondNum).toFixed(2);
+    interimResult = (firstNum/secondNum).toFixed(2);
 
 }
 
