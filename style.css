@@ -1,5 +1,3 @@
-
-
 body{
     display: flex;
     justify-content: flex-start;
@@ -9,7 +7,6 @@ body{
     background:url(https://source.unsplash.com/HHpRh6rNQMo/1920x1080) center center fixed;
     background-size: cover;
 }
-
 .directions{
     display: flex;
     flex-direction: column;

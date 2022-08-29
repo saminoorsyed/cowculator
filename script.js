@@ -46,6 +46,7 @@ function pushInput(ins) {
     }
 
     if (ins === "="){
+        // if no operations are performed reset the numbers and input
         if (input.length === 2){
             console.log('hel');
             numbers = input[0]
@@ -77,6 +78,7 @@ function compute(){
     display();
 }
 
+// just decides which computation to run
 function handleComputation(operation, index){
     const firstNum = parseFloat(input[index-1]);
     const secondNum =parseFloat(input[index+1]);
@@ -91,6 +93,7 @@ function handleComputation(operation, index){
     }else if (operation === "-"){
         subtraction(firstNum,secondNum);
     }
+    // adjust input so that it has the interim result rather than the 3 values before calculation
     input.splice(index,2);
     input[index-1] = interimResult.toString();
     console.log(input);
@@ -143,11 +146,14 @@ function display(){
 }
 
 function del(){
+    // remove last number pushed
     if (numbers.length >0){
         numbers = numbers.slice(0,-1);
     }else if (input.length >0){
+        // pop input if it's an operation
         if (operations.includes(input[-1])) {
             input.pop();
+        // set the last input value to the new number so that new numbers can be concatenated
         }else{
             input.pop();
             numbers = input.pop();
